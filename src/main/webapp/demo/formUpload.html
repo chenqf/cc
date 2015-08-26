@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/jquery.js"></script>
+</head>
+<body>
+	<form id="uploadForm" action="../file/formUpload" enctype="multipart/form-data" method="post">
+		<input id="uploadInput" name="file" type="file" accept="image/*" />
+	</form>
+</body>
+</html>
+<script>
+	$("#uploadInput").on("change", function(e){
+		var	oFile = this.files[0],
+			sName, 
+			sFileType = oFile.type,
+			nSize = 0,
+			nModTime;
+		if(!sFileType){
+			sFileType = "image/" + sName.split(".").pop().toLowerCase();
+		}
+		var oUploadInfo = {
+			// file name
+			name : oFile.name || oFile.fileName,
+			// file size
+	 		size : oFile.size || oFile.fileSize,
+	 		// file update time
+			modTime : oFile.lastModifiedDate.valueOf(),
+			// file type
+			type: oFile.type,
+			// file object
+			blob : oFile
+		};
+		
+		$('#uploadForm').submit();
+		
+	});
+</script>

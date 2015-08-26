@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenqf.dao.UserMapper">
+    <resultMap type="UserDto" id="UserMap">
+        <id column="id" property="userId" />
+        <result column="name" property="username"/>
+    </resultMap>
+    
+    <select id="getById" parameterType="Long" resultMap="UserMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		t_user 
+    	WHERE 
+    		id=#{id}
+    	LIMIT 1
+    </select>
+    
+    <select id="queryUsers" resultMap="UserMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		t_user 
+    </select>
+</mapper>

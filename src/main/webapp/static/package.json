@@ -1,0 +1,33 @@
+{
+  "name": "config",
+  "version": "0.1.0",
+  "jqMobileVersion": "1.4.2",
+  "devDependencies": {
+    "crypto": "0.0.3",
+    "del": "^1.1.1",
+    "fs": "0.0.2",
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "~0.5.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-requirejs": "0.4.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-css-combo": "^0.2.2",
+    "grunt-css-import": "^0.1.6",
+    "grunt-md5-list": "^0.4.3",
+    "grunt-rev": "^0.1.0",
+    "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.4.3",
+    "gulp-plumber": "^0.6.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.3",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.1",
+    "q": "^1.1.2",
+    "r": "0.0.5",
+    "through2": "^0.6.3",
+    "underscore": "^1.7.0"
+  }
+}
