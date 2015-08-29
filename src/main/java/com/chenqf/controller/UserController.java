@@ -15,23 +15,29 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.chenqf.dto.UserDto;
 import com.chenqf.service.UserService;
+import com.utils.json.JsonData;
+import com.utils.json.JsonObject;
+
+import BaseController.BaseController;
 
 @Controller
-public class UserController {
+@RequestMapping("demo")
+public class UserController extends BaseController {
+	
 	@Autowired
 	private UserService userService;
 	
 	
 	@RequestMapping(value = "/getUserById", method = RequestMethod.GET)
 	@ResponseBody
-	public UserDto getUserById(Long id)throws Exception {
-		
-		return this.userService.getUserById(id);
+	public JsonObject getUserById(@RequestParam(value = "id") Long id){
+
+		return new JsonData(this.userService.getUserById(id));
 	}
 	
 	@RequestMapping(value = "/queryUsers", method = RequestMethod.GET)
 	@ResponseBody
-	public List<UserDto> getUserById()throws Exception {
+	public List<UserDto> queryUsers() throws Exception {
 		
 		return this.userService.queryUsers();
 	}
