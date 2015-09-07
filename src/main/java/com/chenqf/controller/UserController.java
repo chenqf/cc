@@ -20,7 +20,7 @@ import com.utils.json.JsonData;
 import com.utils.json.JsonObject;
 
 @Controller
-@RequestMapping("demo")
+@RequestMapping("chenqf")
 public class UserController extends BaseController {
 	
 	@Autowired

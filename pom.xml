@@ -137,8 +137,25 @@
     </dependency>
     
   </dependencies>
+  
+  
 
   <build>
     <finalName>test</finalName>
+    <plugins>
+    	<plugin>  
+		    <groupId>org.mortbay.jetty</groupId>  
+		    <artifactId>jetty-maven-plugin</artifactId>  
+		    <version>8.1.5.v20120716</version>  
+		    <configuration>  
+		        <stopPort>9966</stopPort>  
+		        <stopKey>foo</stopKey>  
+		        <scanIntervalSeconds>10</scanIntervalSeconds>  
+		        <webApp>  
+		            <contextPath>/teff</contextPath>  
+		        </webApp>  
+		    </configuration>  
+		</plugin>  
+    </plugins>
   </build>
 </project>
