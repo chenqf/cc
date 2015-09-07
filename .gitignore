@@ -2,3 +2,6 @@
 
 /src/main/webapp/static/node_modules
 
+/.settings
+/.project
+/.classpath
