@@ -1,4 +1,4 @@
-package BaseController;
+package com.cc.base;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cc.base.BaseController;
 import com.chenqf.dto.UserDto;
 import com.chenqf.service.UserService;
 import com.utils.json.JsonData;
 import com.utils.json.JsonObject;
-
-import BaseController.BaseController;
 
 @Controller
 @RequestMapping("demo")
