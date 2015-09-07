@@ -1,21 +1,21 @@
 /**  
- * Copyright 漏 2014鐢靛瓙鍟嗗姟. All rights reserved.
+ * Copyright © 2014电子商务. All rights reserved.
  *
  * @Title: SelfDefinedException.java
  * @Prject: tgou
  * @Package: com.tgou.utils.exception
- * @Description: 鑷畾涔夊紓甯哥被
+ * @Description: 自定义异常类
  * @author: Jingh 
- * @date: 2014骞�鏈�鏃�涓嬪崍2:15:11
+ * @date: 2014年8月6日 下午2:15:11
  * @version: V1.0  
  */
-package com.utils.exception;
+package com.tgou.utils.exception;
 
 /**
  * @ClassName: SelfDefinedException
- * @Description: 鑷畾涔夊紓甯哥被
+ * @Description: 自定义异常类
  * @author: Jingh
- * @date: 2014骞�鏈�鏃�涓嬪崍2:15:11
+ * @date: 2014年8月6日 下午2:15:11
  */
 public class CustomException extends RuntimeException {
 
