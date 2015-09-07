@@ -9,7 +9,7 @@
  * @date: 2014年8月6日 下午2:15:11
  * @version: V1.0  
  */
-package com.tgou.utils.exception;
+package com.utils.exception;
 
 /**
  * @ClassName: SelfDefinedException
