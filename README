@@ -1,2 +1,6 @@
 备忘：
 Java Resources 红叉：Project Facets 选择java版本
+
+
+
+AOP:使用场景有限，只适用于那些具有横切逻辑的应用场合，入性能检测、访问控制、事物管理、日志记录。
