@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chenqf.dao.UserMapper">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.demo.dao.UserMapper">
     <resultMap type="UserDto" id="UserMap">
         <id column="id" property="userId" />
         <result column="name" property="username"/>
@@ -23,4 +22,13 @@
     	FROM 
     		t_user 
     </select>
+
+	<select id="edit">
+		UPDATE t_user SET name = 'cqf' WHERE id = '2'
+	</select>
+
+	<select id="add">
+		INSERT INTO t_user VALUES ('aaa')
+	</select>
+
 </mapper>
