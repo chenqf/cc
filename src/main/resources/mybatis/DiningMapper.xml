@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dining.dao.DiningMapper">
+    <resultMap type="Dining" id="DiningMap">
+        <result column="user_name" property="username"/>
+    </resultMap>
+    
+    
+    <select id="query" resultMap="DiningMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		dining 
+    </select>
+
+</mapper>

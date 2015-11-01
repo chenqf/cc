@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.order.dao.OrderMapper">
+    <resultMap type="Order" id="OrderMap">
+        <result column="user_name" property="username"/>
+    </resultMap>
+    
+    
+    <select id="queryByUserId" resultMap="OrderMap">
+    	SELECT 
+    		`t1`.* ,
+    		dish.id AS dishId,
+    		dish.price AS price,
+    		dish.name AS dishName,
+    		dish.image AS dishImage,
+    		dining.id AS diningId,
+    		dining.name AS diningName,
+    		dining.image AS diningImage
+		FROM (
+			SELECT 
+				* 
+			FROM 
+				`order` 
+			AS 
+				o
+			WHERE 
+				o.fk_user_id = #{userId}
+		) AS t1
+		LEFT JOIN 
+			order_dish
+		ON 
+			`t1`.id = order_dish.fk_order_id
+		LEFT JOIN 
+			dish
+		ON 
+			dish.id = order_dish.fk_dish_id
+		LEFT JOIN 
+			dining
+		ON 
+			dish.fk_dining_id = dining.id
+    </select>
+
+</mapper>

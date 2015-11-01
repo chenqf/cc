@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.shopCard.dao.ShopCardMapper">
+    <resultMap type="ShopCard" id="shopCardMap">
+        <result column="fk_dish_id" property="fkDishId"/>
+        <result column="fk_user_id" property="fkUserId"/>
+        <result column="fk_dining_id" property="fkDiningId" />
+    </resultMap>
+    
+    
+    <select id="queryByUserId" resultMap="shopCardMap">
+    	SELECT 
+    		shopCard.* , 
+    		dining.name as diningName,
+    		dining.image as diningImage,
+    		dish.name as dishName,
+    		dish.image as dishImage,
+    		dish.price as price
+    	FROM 
+    		shopCard
+   		LEFT JOIN user
+   			ON shopCard.fk_user_id = user.id
+  		LEFT JOIN dining
+  			ON shopCard.fk_dining_id = dining.id
+ 		LEFT JOIN dish
+  			ON shopCard.fk_dish_id = dish.id
+ 		WHERE fk_user_id = #{userId};
+    </select>
+    
+    <select id="getById" resultMap="shopCardMap">
+    	SELECT 
+    		*
+    	FROM
+    		shopCard
+   		WHERE 
+   			id=#{id}
+    	
+    </select>
+    
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO 
+        	shopCard 
+        	(fk_user_id,fk_dish_id,fk_dining_id,num)
+        VALUES 
+        	(#{userId},#{dishId},#{diningId},#{num})
+    </insert>
+    
+    <update id="updateNum">
+    	UPDATE 
+        	shopCard 
+        SET 
+            num=#{num}
+        WHERE 
+        	id=#{id}
+    </update>
+    
+    <delete id="delete">
+    	DELETE
+    		FROM
+    			shopCard
+    		WHERE
+    	id=#{id}
+    </delete>
+    
+    <delete id="batchDelete">
+    	DELETE
+    		FROM
+    			shopCard
+    		WHERE
+    	id in (#{ids})
+    
+    </delete>
+
+</mapper>

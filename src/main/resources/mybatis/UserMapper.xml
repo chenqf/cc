@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cc.demo.dao.UserMapper">
-    <resultMap type="UserDto" id="UserMap">
-        <id column="id" property="userId" />
-        <result column="name" property="username"/>
+<mapper namespace="com.cc.user.dao.UserMapper">
+    <resultMap type="User" id="UserMap">
+        <result column="user_name" property="username"/>
+        <result column="nick_name" property="nickName"/>
     </resultMap>
     
-    <select id="getById" parameterType="Long" resultMap="UserMap">
+    
+    <select id="getById" resultMap="UserMap">
     	SELECT 
     		* 
     	FROM 
-    		t_user 
-    	WHERE 
-    		id=#{id}
-    	LIMIT 1
+    		user  
+   		WHERE id = #{id}
     </select>
     
-    <select id="queryUsers" resultMap="UserMap">
+    
+    <select id="query" resultMap="UserMap">
     	SELECT 
     		* 
     	FROM 
-    		t_user 
+    		user 
     </select>
-
-	<select id="edit">
-		UPDATE t_user SET name = 'cqf' WHERE id = '2'
-	</select>
-
-	<select id="add">
-		INSERT INTO t_user VALUES ('aaa')
-	</select>
+    
+    <insert id="regist" parameterType="com.cc.user.dto.User" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO 
+        	user 
+        	(user_name,password,nick_name)
+        VALUES 
+        	(#{username},#{password},#{nickName})
+    </insert>
 
 </mapper>

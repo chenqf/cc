@@ -17,7 +17,7 @@
 	</properties>
 
 	<!-- 远程仓库 -->
-	<repositories>
+	<!-- <repositories>
 		<repository>
 			<id>nexus</id>
 			<name>Team Nexus Repository</name>
@@ -29,7 +29,7 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	</repositories>
+	</repositories> -->
 
 	<!-- 依赖的jar包 -->
 	<dependencies>
