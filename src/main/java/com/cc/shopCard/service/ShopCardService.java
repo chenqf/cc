@@ -18,12 +18,17 @@ public class ShopCardService {
 		return this.shopCardMapper.queryByUserId(userId);
 	};
 	
-	public ShopCard add(Long userId,Long dishId,Long diningId,Integer num){
-		return this.shopCardMapper.add(userId,dishId,diningId,num);
+	public void add(Long userId,Long dishId,Long diningId,Integer num){
+		ShopCard shopCard = new ShopCard();
+		shopCard.setFkUserId(userId);
+		shopCard.setFkDishId(dishId);
+		shopCard.setFkDiningId(diningId);
+		shopCard.setNum(num);
+		this.shopCardMapper.add(shopCard);
 	};
 	
-	public ShopCard updateNum(Long id,Integer num){
-		return this.shopCardMapper.updateNum(id,num);
+	public void updateNum(Long id,Integer num){
+		this.shopCardMapper.updateNum(id,num);
 	};
 	
 	public ShopCard getById(Long id){

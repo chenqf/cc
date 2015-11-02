@@ -21,6 +21,12 @@ public class Order {
 	private Long dishId;
 	
 	private Long diningId;
+	
+	private Long fkOrderId;
+	
+	private Long fkDishId;
+	
+	private Integer num;
 
 	public Long getId() {
 		return id;
@@ -101,4 +107,30 @@ public class Order {
 	public void setDiningId(Long diningId) {
 		this.diningId = diningId;
 	}
+
+	public Long getFkOrderId() {
+		return fkOrderId;
+	}
+
+	public void setFkOrderId(Long fkOrderId) {
+		this.fkOrderId = fkOrderId;
+	}
+
+	public Long getFkDishId() {
+		return fkDishId;
+	}
+
+	public void setFkDishId(Long fkDishId) {
+		this.fkDishId = fkDishId;
+	}
+
+	public Integer getNum() {
+		return num;
+	}
+
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+	
+	
 }

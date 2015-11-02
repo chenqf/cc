@@ -11,4 +11,6 @@ public interface DishMapper {
 	 * @return
 	 */
 	List<Dish> query(Long diningId);
+	
+	Dish getById(Long id);
 }

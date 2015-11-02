@@ -6,7 +6,9 @@ import com.cc.order.dto.Order;
 
 public interface OrderMapper {
 	
-	List<Order> queryByUserId(Long userId);
+	public List<Order> queryByUserId(Long userId);
 	
-	Order add(Order order);
+	public Long add(Order order);
+	
+	public void addOrderDish(Order order);
 }

@@ -37,21 +37,33 @@
     	
     </select>
     
+    <select id="getByInfo" resultMap="shopCardMap">
+    	SELECT 
+    		*
+    	FROM
+    		shopCard
+   		WHERE 
+   			fk_user_id=#{0}
+  		AND
+  			fk_dish_id=#{1}
+    	
+    </select>
+    
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
     	INSERT INTO 
         	shopCard 
         	(fk_user_id,fk_dish_id,fk_dining_id,num)
         VALUES 
-        	(#{userId},#{dishId},#{diningId},#{num})
+        	(#{fkUserId},#{fkDishId},#{fkDiningId},#{num})
     </insert>
     
-    <update id="updateNum">
+    <update id="updateNum" parameterType="com.cc.shopCard.dto.ShopCard">
     	UPDATE 
         	shopCard 
         SET 
-            num=#{num}
+            num=#{1}
         WHERE 
-        	id=#{id}
+        	id=#{0}
     </update>
     
     <delete id="delete">

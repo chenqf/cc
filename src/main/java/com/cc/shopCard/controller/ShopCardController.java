@@ -14,6 +14,7 @@ import com.cc.shopCard.dto.ShopCard;
 import com.cc.shopCard.service.ShopCardService;
 import com.utils.json.JsonData;
 import com.utils.json.JsonObject;
+import com.utils.json.JsonSuccess;
 
 @Controller
 @RequestMapping("shopCard")
@@ -41,10 +42,11 @@ public class ShopCardController extends BaseController {
 		
 		ShopCard shopCard = this.shopCardService.getByInfo(userId,dishId);
 		if(shopCard == null){
-			return new JsonData(this.shopCardService.add(userId,dishId,diningId,num));
+			this.shopCardService.add(userId,dishId,diningId,num);
 		}else{
-			return new JsonData(this.shopCardService.updateNum(shopCard.getId(), shopCard.getNum() + num));
+			this.shopCardService.updateNum(shopCard.getId(), shopCard.getNum() + num);
 		}	
+		return new JsonSuccess();
 	}
 	
 	@RequestMapping(value = "/updateNum", method = RequestMethod.GET)
@@ -54,10 +56,11 @@ public class ShopCardController extends BaseController {
 			@RequestParam(value = "num") Integer num) throws Exception {
 		if(num == 0){
 			this.shopCardService.delete(id);
-			return new JsonObject();
+			
 		}else{
-			return new JsonData(this.shopCardService.updateNum(id, num));
+			this.shopCardService.updateNum(id, num);
 		}
+		return new JsonSuccess();
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -65,7 +68,7 @@ public class ShopCardController extends BaseController {
 	public JsonObject delete(
 			@RequestParam(value = "id") Long id) throws Exception {
 		this.shopCardService.delete(id);
-		return new JsonObject();
+		return new JsonSuccess();
 	}
 	
 	@RequestMapping(value = "/batchDelete", method = RequestMethod.GET)
@@ -73,7 +76,7 @@ public class ShopCardController extends BaseController {
 	public JsonObject batchDelete(
 			@RequestParam(value = "ids") String ids) throws Exception {
 		this.shopCardService.batchDelete(ids);
-		return new JsonObject();
+		return new JsonSuccess();
 	}
 	
 }

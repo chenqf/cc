@@ -18,5 +18,5 @@ public interface UserMapper {
 	
 	User login(User user);
 	
-	User regist(User user);
+	void regist(User user);
 }

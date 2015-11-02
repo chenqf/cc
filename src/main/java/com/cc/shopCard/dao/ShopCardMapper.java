@@ -8,9 +8,9 @@ public interface ShopCardMapper {
 	
 	List<ShopCard> queryByUserId(Long userId);
 	
-	ShopCard add (Long userId,Long dishId,Long diningId,Integer num);
+	void add (ShopCard shopCard);
 	
-	ShopCard updateNum(Long id,Integer num);
+	void updateNum(Long id,Integer num);
 	
 	ShopCard getById(Long id);
 	

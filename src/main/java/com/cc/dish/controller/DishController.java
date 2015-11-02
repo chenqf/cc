@@ -30,6 +30,13 @@ public class DishController extends BaseController {
 		return new JsonData(this.dishService.query(diningId));
 	}
 	
+	@RequestMapping(value = "/getById", method = RequestMethod.GET)
+	@ResponseBody
+	public JsonObject getById(@RequestParam(value = "id") Long id) throws Exception {
+		
+		return new JsonData(this.dishService.getById(id));
+	}
+	
 }
 
 

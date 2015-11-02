@@ -17,4 +17,8 @@ public class DishService {
 	public List<Dish> query(Long diningId){
 		return this.dishMapper.query(diningId);
 	}
+	
+	public Dish getById(Long id){
+		return this.dishMapper.getById(id);
+	}
 }

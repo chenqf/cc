@@ -18,8 +18,8 @@ public class UserService {
 		return this.userMapper.query();
 	}
 	
-	public User regist(User user){
-		return this.userMapper.regist(user);
+	public void regist(User user){
+		this.userMapper.regist(user);
 	}
 	
 	public User login(User user){

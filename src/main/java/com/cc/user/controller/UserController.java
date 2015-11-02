@@ -47,8 +47,13 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)
 	@ResponseBody
 	public JsonObject regist(@Validated User user) throws Exception {
-		
-		return new JsonData(this.userService.regist(user));
+		String username = user.getUsername();
+		User u = this.userService.getByName(username);
+		if(u != null){
+			throw new Exception("用户名已存在");
+		}
+		this.userService.regist(user);
+		return new JsonData(user);
 	}
 	
 }
