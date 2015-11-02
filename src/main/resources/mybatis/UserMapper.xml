@@ -34,9 +34,9 @@
     <insert id="regist" parameterType="com.cc.user.dto.User" useGeneratedKeys="true" keyProperty="id">
     	INSERT INTO 
         	user 
-        	(user_name,password,nick_name)
+        	(user_name,password,nick_name,address)
         VALUES 
-        	(#{username},#{password},#{nickName})
+        	(#{username},#{password},#{nickName},#{address})
     </insert>
 
 </mapper>
