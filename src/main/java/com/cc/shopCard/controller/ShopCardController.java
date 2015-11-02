@@ -32,7 +32,7 @@ public class ShopCardController extends BaseController {
 		return new JsonData(this.shopCardService.queryByUserId(userId));
 	}
 	
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/add")
 	@ResponseBody
 	public JsonObject add(
 			@RequestParam(value = "userId") Long userId,
@@ -49,7 +49,7 @@ public class ShopCardController extends BaseController {
 		return new JsonSuccess();
 	}
 	
-	@RequestMapping(value = "/updateNum", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateNum")
 	@ResponseBody
 	public JsonObject updateNum(
 			@RequestParam(value = "id") Long id,
@@ -63,7 +63,7 @@ public class ShopCardController extends BaseController {
 		return new JsonSuccess();
 	}
 	
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public JsonObject delete(
 			@RequestParam(value = "id") Long id) throws Exception {
@@ -71,7 +71,7 @@ public class ShopCardController extends BaseController {
 		return new JsonSuccess();
 	}
 	
-	@RequestMapping(value = "/batchDelete", method = RequestMethod.GET)
+	@RequestMapping(value = "/batchDelete")
 	@ResponseBody
 	public JsonObject batchDelete(
 			@RequestParam(value = "ids") String ids) throws Exception {

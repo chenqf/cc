@@ -31,7 +31,7 @@ public class UserController extends BaseController {
 		return new JsonData(this.userService.query());
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login")
 	@ResponseBody
 	public JsonObject login(@Validated User user) throws Exception {
 		String name = user.getUsername();
@@ -44,7 +44,7 @@ public class UserController extends BaseController {
 		}
 	}
 	
-	@RequestMapping(value = "/regist", method = RequestMethod.GET)
+	@RequestMapping(value = "/regist")
 	@ResponseBody
 	public JsonObject regist(@Validated User user) throws Exception {
 		String username = user.getUsername();
