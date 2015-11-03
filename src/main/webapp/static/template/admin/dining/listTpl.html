@@ -1,0 +1,35 @@
+<div style="position: relative;">
+	<h2 class="sub-header">餐厅列表</h2>
+	<button style="position: absolute;right: 0;top: 0;" id="addDining" type="button" class="btn btn-sm btn-danger">新增</button>
+</div>
+
+<div class="table-responsive">
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>#</th>
+         <th>图片</th>
+         <th>名称</th>
+         <th>账号</th>
+         <th>地址</th>
+         <th>经度</th>
+         <th>纬度</th>
+         <th>操作</th>
+       </tr>
+     </thead>
+     <tbody>
+     	<%for(var i = 0;i<data.length; i++){%>
+     		<tr data-id="<%=data[i].id%>">
+         		<td><%=data[i].id%></td>
+         		<td><img src="<%=data[i].image%>" width="100" height="100"></td>
+         		<td><%=data[i].name%></td>
+         		<td><%=data[i].username%></td>
+         		<td><%=data[i].address%></td>
+         		<td><%=data[i].lon%></td>
+         		<td><%=data[i].lat%></td>
+         		<td><a id="editDining">编辑</a>&nbsp;&nbsp;&nbsp;<a id="deleteDining">删除</a></td>
+       		</tr>
+     	<%}%>
+     </tbody>
+   </table>
+ </div>
