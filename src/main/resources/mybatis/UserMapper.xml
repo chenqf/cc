@@ -38,5 +38,25 @@
         VALUES 
         	(#{username},#{password},#{nickName},#{address})
     </insert>
+    
+    <update id="edit" parameterType="com.cc.user.dto.User">
+    	UPDATE 
+        	user 
+        SET 
+            user_name=#{username},
+            password=#{password},
+            nick_name=#{nickName},
+            address=#{address}
+        WHERE 
+        	id=#{id}
+    </update>
+    
+    <delete id="delete">
+		DELETE
+    	FROM
+    		user
+    	WHERE
+    		id=#{id}
+	</delete>
 
 </mapper>

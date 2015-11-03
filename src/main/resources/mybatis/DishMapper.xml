@@ -11,7 +11,7 @@
     		* 
     	FROM 
     		dish
-   		WHERE fk_dining_id = #{fkDiningId}
+   		WHERE fk_dining_id = #{diningId}
     </select>
     
     <select id="getById" resultMap="DishMap">
@@ -22,6 +22,33 @@
    		WHERE id = #{id}
     </select>
     
+    <insert id="add" parameterType="com.cc.dish.dto.Dish" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO 
+        	dish 
+        	(`name`,fk_dining_id,image,price,`describe`)
+        VALUES 
+        	(#{name},#{fkDiningId},#{image},#{price},#{describe})
+    </insert>
     
+    <update id="edit" parameterType="com.cc.dish.dto.Dish">
+    	UPDATE 
+        	dish 
+        SET 
+            `name`=#{name},
+            fk_dining_id=#{fkDiningId},
+            image=#{image},
+            price=#{price},
+            `describe`=#{describe}
+        WHERE 
+        	id=#{id}
+    </update>
+    
+    <delete id="delete">
+		DELETE
+    	FROM
+    		dish
+    	WHERE
+    		id=#{id}
+	</delete>
 
 </mapper>

@@ -21,4 +21,16 @@ public class DishService {
 	public Dish getById(Long id){
 		return this.dishMapper.getById(id);
 	}
+	
+	public void add(Dish dish){
+		this.dishMapper.add(dish);
+	}
+	
+	public void edit(Dish dish){
+		this.dishMapper.edit(dish);
+	}
+	
+	public void delete(Long id){
+		this.dishMapper.delete(id);
+	}
 }

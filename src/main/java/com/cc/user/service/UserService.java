@@ -33,4 +33,12 @@ public class UserService {
 	public User getByName(String name){
 		return this.userMapper.getByName(name);
 	}
+	
+	public void edit(User user){
+		this.userMapper.edit(user);
+	}
+	
+	public void delete(Long id){
+		this.userMapper.delete(id);
+	}
 }

@@ -18,5 +18,13 @@ public interface DiningMapper {
 	 * @return
 	 */
 	List<Dining> query();
+	
+	Dining getById(Long id);
+	
+	void add(Dining dining);
+	
+	void edit(Dining dining);
+	
+	void delete(Long id);
 
 }

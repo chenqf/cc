@@ -17,4 +17,20 @@ public class DiningService {
 	public List<Dining> query(){
 		return this.diningMapper.query();
 	};
+	
+	public Dining getById(Long id){
+		return this.diningMapper.getById(id);
+	};
+	
+	public void edit(Dining dining){
+		this.diningMapper.edit(dining);
+	}
+	
+	public void add(Dining dining){
+		this.diningMapper.add(dining);
+	}
+	
+	public void delete(Long id){
+		this.diningMapper.delete(id);
+	}
 }

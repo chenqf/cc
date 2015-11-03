@@ -41,12 +41,47 @@
 			dish.fk_dining_id = dining.id
     </select>
     
+    <select id="queryByDiningId" resultMap="OrderMap">
+    	SELECT 
+    		`t1`.* ,
+    		order_dish.num AS num,
+    		dish.id AS dishId,
+    		dish.price AS price,
+    		dish.name AS dishName,
+    		dish.image AS dishImage,
+    		dining.id AS diningId,
+    		dining.name AS diningName,
+    		dining.image AS diningImage
+		FROM (
+			SELECT 
+				* 
+			FROM 
+				`order` 
+			AS 
+				o
+		) AS t1
+		LEFT JOIN 
+			order_dish
+		ON 
+			`t1`.id = order_dish.fk_order_id
+		LEFT JOIN 
+			dish
+		ON 
+			dish.id = order_dish.fk_dish_id
+		LEFT JOIN 
+			dining
+		ON 
+			dish.fk_dining_id = dining.id
+	  	WHERE dish.fk_dining_id = #{diningId}
+    </select>
+    
+    
     <insert id="add" parameterType="com.cc.order.dto.Order" useGeneratedKeys="true" keyProperty="id">
     	INSERT INTO 
         	 `order`
-        	(fk_user_id,state)
+        	(fk_user_id,state,create_time,price,fk_dining_id)
         VALUES 
-        	(#{fkUserId},#{state})
+        	(#{fkUserId},#{state},#{createTime},#{price},#{fkDiningId})
     </insert>
     
     <insert id="addOrderDish" parameterType="com.cc.order.dto.Order">
@@ -56,5 +91,14 @@
         VALUES 
         	(#{fkOrderId},#{fkDishId},#{num})
     </insert>
+    
+    <update id="edit" parameterType="com.cc.order.dto.Order">
+    	UPDATE 
+        	order 
+        SET 
+            state=#{state}
+        WHERE 
+        	id=#{id}
+    </update>
 
 </mapper>

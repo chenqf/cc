@@ -11,6 +11,46 @@
     		* 
     	FROM 
     		dining 
+    		
     </select>
+    
+    <select id="getById" resultMap="DiningMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		dining 
+   		WHERE id = #{id}
+    </select>
+    
+    <insert id="add" parameterType="com.cc.dining.dto.Dining" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO 
+        	dining 
+        	(name,image,user_name,password,address,lat,lon)
+        VALUES 
+        	(#{name},#{image},#{username},#{password},#{address},#{lat},#{lon})
+    </insert>
+    
+    <update id="edit" parameterType="com.cc.dining.dto.Dining">
+    	UPDATE 
+        	dining 
+        SET 
+            name=#{name},
+            image=#{image},
+            user_name=#{username},
+            password=#{password},
+            address=#{address},
+            lat=#{lat},
+            lon=#{lon}
+        WHERE 
+        	id=#{id}
+    </update>
+    
+    <delete id="delete">
+		DELETE
+    	FROM
+    		dining
+    	WHERE
+    		id=#{id}
+	</delete>
 
 </mapper>

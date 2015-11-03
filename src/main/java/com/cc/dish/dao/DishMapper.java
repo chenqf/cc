@@ -13,4 +13,10 @@ public interface DishMapper {
 	List<Dish> query(Long diningId);
 	
 	Dish getById(Long id);
+	
+	void add(Dish dish);
+	
+	void edit(Dish dish);
+	
+	void delete(Long id);
 }
