@@ -11,6 +11,8 @@ public class Dish {
 	private Long fkDiningId;
 	
 	private double price;
+	
+	private String describe;
 
 	public Long getId() {
 		return id;
@@ -51,7 +53,12 @@ public class Dish {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
-	
-	
+
+	public String getDescribe() {
+		return describe;
+	}
+
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
 }
