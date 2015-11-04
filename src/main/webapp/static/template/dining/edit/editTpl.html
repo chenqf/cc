@@ -1,0 +1,45 @@
+<form class="form-horizontal" role="form">
+	<input type="hidden" id="diningId" value="<%=data.id%>">
+    <fieldset>
+        <legend>编辑餐厅</legend>
+       <div class="form-group">
+          <label class="col-sm-2 control-label" for="name">名称</label>
+          <div class="col-sm-4">
+             <input class="form-control" id="name" type="text" placeholder="名称" value="<%=data.name%>"/>
+          </div>
+          <label class="col-sm-2 control-label" for="image">图片</label>
+          <div class="col-sm-4">
+             <input class="form-control" id="image" type="text" placeholder="图片"  value="<%=data.image%>"/>
+          </div>
+       </div>
+       <div class="form-group">
+          <label class="col-sm-2 control-label" for="username">用户名</label>
+          <div class="col-sm-4">
+             <input class="form-control" id="username" type="text" placeholder="用户名" value="<%=data.username%>"/>
+          </div>
+          <label class="col-sm-2 control-label" for="address">地址</label>
+          <div class="col-sm-4">
+             <input class="form-control" id="address" type="text" placeholder="地址" value="<%=data.address%>"/>
+          </div>
+          
+       </div>
+       <div class="form-group">
+          
+          <label class="col-sm-2 control-label" for="lon">经度</label>
+          <div class="col-sm-4">
+             <input class="form-control" id="lon" type="text" placeholder="经度" value="<%=data.lon%>"/>
+          </div>
+          <label class="col-sm-2 control-label" for="lat">纬度</label>
+          <div class="col-sm-4">
+             <input class="form-control" id="lat" type="text" placeholder="纬度" value="<%=data.lat%>"/>
+          </div>
+       </div>
+       <div class="form-group">
+          <label class="col-sm-2 control-label" for="password">密码</label>
+          <div class="col-sm-4">
+             <input class="form-control" id="password" type="password" placeholder="密码" value="<%=data.password%>"/>
+          </div>
+       </div>
+    </fieldset>     
+    <button id="submit" type="button" class="btn btn-sm btn-primary" style="float: right;">确定</button>
+</form>

@@ -19,6 +19,7 @@ function ($,Util,mainTpl) {
 		_bindEvent:function(){
 			Util.bindEvent({
 				"#logout":$.proxy(this.logout,this),
+				"#diningEvent":$.proxy(this.diningHandler,this),
 				"#dishEvent":$.proxy(this.dishHandler,this),
 				"#orderEvent":$.proxy(this.orderHandler,this)
 			})
@@ -26,13 +27,19 @@ function ($,Util,mainTpl) {
 		logout:function(){
 			location.reload()
 		},
+		diningHandler:function(){
+			$('#diningEvent').parent().find('li').removeClass('active');
+			$('#diningEvent').addClass('active');
+			require(['Edit'],function(Page){
+				Page.initPage();
+			})
+		},
 		dishHandler:function(){
 			$('#dishEvent').parent().find('li').removeClass('active');
 			$('#dishEvent').addClass('active');
 			require(['dish/List'],function(Page){
 				Page.initPage();
 			})
-			
 		},
 		orderHandler:function(){
 			$('#orderEvent').parent().find('li').removeClass('active');

@@ -1,0 +1,13 @@
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+       <label for="disabledSelect"  class="col-sm-2 control-label">订单状态</label>
+       <div class="col-sm-10">
+          <select id="orderSelect" class="form-control">
+             <option value="sending" selected="<%=data.state === 'sending' ? 'selected':''%>">已送餐</option>
+             <option value="sended" selected="<%=data.state === 'sended' ? 'selected':''%>">已送达</option>
+             <option value="ready" selected="<%=data.state === 'ready' ? 'selected':''%>">已接单</option>
+             <option value="not" selected="<%=data.state === 'not' ? 'selected':''%>">未接单</option>
+          </select>
+       </div>
+    </div>
+</form>

@@ -8,13 +8,40 @@
 
 define([
     'jquery',
-   'Template'
+   'Template',
+   'text!../../template/util/modalTpl.html'
 ],
-    function ($,Template) {
+    function ($,Template,modalTpl) {
 
         var Util = function () {
         	this.cache = {};
         };
+        
+        Util.prototype.window = function(options){
+        	var that = this,
+        		okFn;
+        	options.title = options.title || '';
+        	options.event = options.event || {};
+        	okFn = options.okFn || function(){};
+        	options.okFn = function(){
+        		okFn();
+        		$('.modal-backdrop').remove();
+        		$('#myModal').remove();
+        	}
+        	options.event['#saveEvent'] = options.okFn;
+        	$('#myModal').remove();
+        	this.pageContent({
+        		parent:$('body'),
+        		type:'append',
+        		template:modalTpl,
+        		data:options,
+        		callback:function(){
+        			$('#myModal').modal()
+        			$('#windowContent').html(options.content)
+        			that.bindEvent(options.event);
+        		}
+        	})
+        }
         
         Util.prototype.alert = function(message){
         	alert(message)

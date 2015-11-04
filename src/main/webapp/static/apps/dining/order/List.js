@@ -2,8 +2,9 @@ define([
     'jquery',
     'Util',
     'text!../../../template/dining/order/listTpl.html',
+    'text!../../../template/dining/order/windowTpl.html'
 ],
-function ($,Util,listTpl) {
+function ($,Util,listTpl,windowTpl) {
 	
 	return {
 		initPage:function(){
@@ -44,7 +45,8 @@ function ($,Util,listTpl) {
 		},
 		_bindEvent:function(){
 			Util.bindEvent({
-				"#detailOrder":$.proxy(this.detailOrderHandler,this)
+				"#detailOrder":$.proxy(this.detailOrderHandler,this),
+				"#stateOrder":$.proxy(this.stateOrderHandler,this),
 			})
 		},
 		detailOrderHandler:function(e){
@@ -53,9 +55,38 @@ function ($,Util,listTpl) {
 				$item = $target.closest('tr'),
 				id = $item.data('id'),
 				obj = Util.getItemById(that.orderData,id);
-			require(['order/Detail'],function(Page){
-				Page.initPage(obj);
-			})
+			if(id){
+				require(['order/Detail'],function(Page){
+					Page.initPage(obj);
+				})
+			}
+			
+		},
+		stateOrderHandler:function(e){
+			var that = this,
+				$target = $(e.target),
+				$item = $target.closest('tr'),
+				id = $item.data('id'),
+				obj = Util.getItemById(that.orderData,id);
+			if(id){
+				var content = Util.getTemplate(windowTpl,obj,{});
+				Util.window({
+					title:"修改订单状态",
+					content:content,
+					okFn:function(){
+						var orderState = $('#orderSelect').val();
+						Util.post({
+							url:'order/edit',
+							data:{
+								state:orderState
+							},
+							success:function(){
+								thta.initPage();
+							}
+						})
+					}
+				})
+			}
 		}
 	}
 });
