@@ -1,6 +1,6 @@
 <div style="position: relative;">
-	<h2 class="sub-header">椁愬巺鍒楄〃</h2>
-	<button style="position: absolute;right: 0;top: 0;" id="addDining" type="button" class="btn btn-sm btn-danger">鏂板</button>
+	<h2 class="sub-header">餐厅列表</h2>
+	<button style="position: absolute;right: 0;top: 0;" id="addDining" type="button" class="btn btn-sm btn-danger">新增</button>
 </div>
 
 <div class="table-responsive">
@@ -8,13 +8,13 @@
      <thead>
        <tr>
          <th>#</th>
-         <th>鍥剧墖</th>
-         <th>鍚嶇О</th>
-         <th>璐﹀彿</th>
-         <th>鍦板潃</th>
-         <th>缁忓害</th>
-         <th>绾害</th>
-         <th>鎿嶄綔</th>
+         <th>图片</th>
+         <th>名称</th>
+         <th>账号</th>
+         <th>地址</th>
+         <th>经度</th>
+         <th>纬度</th>
+         <th>操作</th>
        </tr>
      </thead>
      <tbody>
@@ -27,7 +27,7 @@
          		<td><%=data[i].address%></td>
          		<td><%=data[i].lon%></td>
          		<td><%=data[i].lat%></td>
-         		<td><a id="editDining">缂栬緫</a>&nbsp;&nbsp;&nbsp;<a id="deleteDining">鍒犻櫎</a></td>
+         		<td><a id="editDining">编辑</a>&nbsp;&nbsp;&nbsp;<a id="deleteDining">删除</a></td>
        		</tr>
      	<%}%>
      </tbody>
