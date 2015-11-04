@@ -33,32 +33,36 @@ function ($,Util,editTpl) {
 		submit:function(e){
 			var id = $('#diningId').val(),
 			username = $('#username').val(),
-			name = $('#name').val(),
-			password = $('#password').val(),
-			image = $('#image').val(),
-			lat = $('#lat').val(),
-			lon = $('#lon').val(),
-			address = $('#address').val();
-		if(username && name && password && image && lat && lon && address){
-			Util.post({
-				url:'dining/edit',
-				data:{
-					id:id,
-					name:name,
-					username:username,
-					password:password,
-					address:address,
-					image:image,
-					lat:lat,
-					lon:lon
-				},
-				success:function(data){
-					require(['Index'],function(Page){
-						Page.initPage();
-					})
-				}
-			})
-		}
+				name = $('#name').val(),
+				password = $('#password').val(),
+				image = $('#image').val(),
+				lat = $('#lat').val(),
+				lon = $('#lon').val(),
+				address = $('#address').val();
+			if(isNaN(lat) || isNaN(lon)){
+				Util.alert('经纬度输入有误，请重新输入！')
+			}else if(username && name && password && image && lat && lon && address){
+				Util.post({
+					url:'dining/edit',
+					data:{
+						id:id,
+						name:name,
+						username:username,
+						password:password,
+						address:address,
+						image:image,
+						lat:lat,
+						lon:lon
+					},
+					success:function(data){
+						require(['Index'],function(Page){
+							Page.initPage();
+						})
+					}
+				})
+			}else{
+				Util.alert('信息输入有误，请重新输入！')
+			}
 		}
 	}
 });

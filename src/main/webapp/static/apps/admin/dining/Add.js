@@ -29,7 +29,9 @@ function ($,Util,addTpl) {
 				lat = $('#lat').val(),
 				lon = $('#lon').val(),
 				address = $('#address').val();
-			if(username && name && password && image && lat && lon && address){
+			if(isNaN(lat) || isNaN(lon)){
+				Util.alert('经纬度输入有误，请重新输入！')
+			}else if(username && name && password && image && lat && lon && address){
 				Util.post({
 					url:'dining/add',
 					data:{
@@ -47,6 +49,8 @@ function ($,Util,addTpl) {
 						})
 					}
 				})
+			}else{
+				Util.alert('信息输入有误，请重试')
 			}
 		}
 	}

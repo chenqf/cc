@@ -36,7 +36,9 @@ function ($,Util,editTpl) {
 				image = $('#image').val(),
 				price = $('#price').val(),
 				describe = $('#describe').val();
-			if(id && name && image && price && describe){
+			if(isNaN(price)){
+				Util.alert('价格输入有误，请重试')
+			}else if(id && name && image && price && describe){
 				Util.post({
 					url:'dish/edit',
 					data:{
@@ -53,6 +55,8 @@ function ($,Util,editTpl) {
 						})
 					}
 				})
+			}else{
+				Util.alert('信息输入有误，请重试')
 			}
 		}
 	}

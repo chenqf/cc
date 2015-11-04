@@ -41,6 +41,8 @@ function ($,Util,loginTpl) {
 						})
 					}
 				})
+			}else{
+				Util.alert('信息输入有误，请重试')
 			}
 		}
 	}

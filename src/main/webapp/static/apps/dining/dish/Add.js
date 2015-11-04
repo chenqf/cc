@@ -26,7 +26,9 @@ function ($,Util,addTpl) {
 				image = $('#image').val(),
 				price = $('#price').val(),
 				describe = $('#describe').val();
-			if(name && image && price && describe){
+			if(isNaN(price)){
+				Util.alert('价格输入有误，请重试')
+			}else if(name && image && price && describe){
 				Util.post({
 					url:'dish/add',
 					data:{
@@ -42,6 +44,8 @@ function ($,Util,addTpl) {
 						})
 					}
 				})
+			}else{
+				Util.alert('信息输入有误，请重试')
 			}
 		}
 	}
