@@ -49,6 +49,8 @@ public class OrderController extends BaseController {
 			m.put("diningId", order.getDiningId());
 			m.put("diningName", order.getDiningName());
 			m.put("diningImage", order.getDiningImage());
+			m.put("price", order.getPrice());
+			m.put("num", order.getNum());
 			if(ids.indexOf(id) >= 0){
 				int len = newList.size();
 				Map map = newList.get(len -1);
@@ -89,6 +91,8 @@ public class OrderController extends BaseController {
 			m.put("diningId", order.getDiningId());
 			m.put("diningName", order.getDiningName());
 			m.put("diningImage", order.getDiningImage());
+			m.put("price", order.getPrice());
+			m.put("num", order.getNum());
 			if(ids.indexOf(id) >= 0){
 				int len = newList.size();
 				Map map = newList.get(len -1);

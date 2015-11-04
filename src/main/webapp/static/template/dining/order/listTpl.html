@@ -1,0 +1,28 @@
+<div style="position: relative;">
+	<h2 class="sub-header">订单列表</h2>
+</div>
+
+<div class="table-responsive">
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>#</th>
+         <th>餐厅</th>
+         <th>价格</th>
+         <th>状态</th>
+         <th>操作</th>
+       </tr>
+     </thead>
+     <tbody>
+     	<%for(var i = 0;i<data.length; i++){%>
+     		<tr data-id="<%=data[i].id%>">
+         		<td><%=i+1%></td>
+         		<td><%=data[i].list[0].diningName%></td>
+         		<td><%=data[i].price%></td>
+         		<td><%=data[i].stateText%></td>
+         		<td><a id="detailOrder">详情</a></td>
+       		</tr>
+     	<%}%>
+     </tbody>
+   </table>
+ </div>
