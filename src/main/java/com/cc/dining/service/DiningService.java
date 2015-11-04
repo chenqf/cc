@@ -33,4 +33,8 @@ public class DiningService {
 	public void delete(Long id){
 		this.diningMapper.delete(id);
 	}
+	
+	public Dining getByName(String username){
+		return this.diningMapper.getByName(username);
+	}
 }

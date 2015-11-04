@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cc.admin.dto.Admin;
 import com.cc.base.BaseController;
 import com.cc.dining.dto.Dining;
 import com.cc.dining.service.DiningService;
@@ -25,6 +26,20 @@ public class DiningController extends BaseController {
 	
 	@Autowired
 	private DiningService diningService;
+	
+	@RequestMapping(value = "/login")
+	@ResponseBody
+	public JsonObject login(@Validated Dining dining) throws Exception {
+		String name = dining.getUsername();
+		String password = dining.getPassword();
+		Dining d = this.diningService.getByName(name);
+		if(d != null && d.getPassword().equals(password)){
+			return new JsonData(d);
+		}else{
+			throw new Exception("餐厅管理员信息有误，请重试");
+		}
+	}
+	
 	
 	@RequestMapping(value = "/query", method = RequestMethod.GET)
 	@ResponseBody

@@ -14,6 +14,15 @@
     		
     </select>
     
+    <select id="getByName" resultMap="DiningMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		dining  
+   		WHERE user_name = #{username}
+    </select>
+    
+    
     <select id="getById" resultMap="DiningMap">
     	SELECT 
     		* 

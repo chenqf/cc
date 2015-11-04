@@ -19,6 +19,8 @@ public interface DiningMapper {
 	 */
 	List<Dining> query();
 	
+	Dining getByName(String username);
+	
 	Dining getById(Long id);
 	
 	void add(Dining dining);

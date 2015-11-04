@@ -1,6 +1,6 @@
 <div style="position: relative;">
-	<h2 class="sub-header">�û��б�</h2>
-	<button style="position: absolute;right: 0;top: 0;" id="addUser" type="button" class="btn btn-sm btn-danger">����</button>
+	<h2 class="sub-header">用户列表</h2>
+	<button style="position: absolute;right: 0;top: 0;" id="addUser" type="button" class="btn btn-sm btn-danger">新增</button>
 </div>
 
 <div class="table-responsive">
@@ -8,10 +8,10 @@
      <thead>
        <tr>
          <th>#</th>
-         <th>�û���</th>
-         <th>�ǳ�</th>
-         <th>��ַ</th>
-         <th>����</th>
+         <th>用户名</th>
+         <th>昵称</th>
+         <th>地址</th>
+         <th>操作</th>
        </tr>
      </thead>
      <tbody>
@@ -21,7 +21,7 @@
          		<td><%=data[i].username%></td>
          		<td><%=data[i].nickName%></td>
          		<td><%=data[i].address%></td>
-         		<td><a id="editUser">�༭</a>&nbsp;&nbsp;&nbsp;<a id="deleteUser">ɾ��</a></td>
+         		<td><a id="editUser">编辑</a>&nbsp;&nbsp;&nbsp;<a id="deleteUser">删除</a></td>
        		</tr>
      	<%}%>
      </tbody>

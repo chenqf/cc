@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: 'apps/admin',
+    baseUrl: 'apps/' + (/admin/.test(location.href) ? 'admin':'dining'),
     waitSeconds: 60,
     paths : {
         'jquery' 				: '../../libs/jquery/jquery',
