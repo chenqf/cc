@@ -14,7 +14,8 @@ require.config({
         'cookie'				: '../../libs/cookie/jquery.cookie',
         'Template' 				: '../../libs/template/Template',
         'Util' 					: '../../libs/util/Util',
-        'bootstrap'				: '../../libs/bootstrap/bootstrap'
+        'bootstrap'				: '../../libs/bootstrap/bootstrap',
+        'message'				: '../../libs/message/js/messenger.min'
 
         
     },
@@ -24,9 +25,17 @@ require.config({
         },
         bootstrap:{
         	deps:[
+        	     'jquery',
         	     'css!../../libs/bootstrap/bootstrap.min.css',
         	     'css!../../libs/bootstrap/bootstrap-theme.min.css'
         	]
+        },
+        message:{
+        	deps: [
+   				'jquery',
+   				'bootstrap',
+   				'css!../../libs/message/css/messenger.css',
+   			]
         },
         cookie : {
         	deps: [

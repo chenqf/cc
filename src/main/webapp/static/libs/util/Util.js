@@ -7,15 +7,32 @@
  */
 
 define([
-    'jquery',
+   'jquery',
    'Template',
-   'text!../../template/util/modalTpl.html'
+   'text!../../template/util/modalTpl.html',
+   'message'
 ],
     function ($,Template,modalTpl) {
 
         var Util = function () {
         	this.cache = {};
         };
+        
+        $._messengerDefaults = {
+    		extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom messenger-on-right'
+        }
+        
+        Util.prototype.alert = function(message){
+        	message = message || '';
+        	var msg = $.globalMessenger().post(message);
+        	setTimeout(function(){
+        		msg.hide();
+        	},2000)
+        }
+        
+        Util.prototype.error = function(message){
+        	this.alert(message)
+        }
         
         Util.prototype.window = function(options){
         	var that = this,
@@ -43,9 +60,6 @@ define([
         	})
         }
         
-        Util.prototype.alert = function(message){
-        	alert(message)
-        }
         
         Util.prototype.ajax = function(options){
         	var that = this,
@@ -53,7 +67,7 @@ define([
         	options.success = function(responseData){
         		if(!responseData.success){
         			var message = responseData.message || '网络好像不给力呦！'
-        			that.alert(message)
+        			that.error(message)
         		}else{
         			success(responseData.data);
         		}
