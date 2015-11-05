@@ -79,9 +79,9 @@
     <insert id="add" parameterType="com.cc.order.dto.Order" useGeneratedKeys="true" keyProperty="id">
     	INSERT INTO 
         	 `order`
-        	(fk_user_id,state,create_time,price,fk_dining_id)
+        	(fk_user_id,state,fk_dining_id,price)
         VALUES 
-        	(#{fkUserId},#{state},#{createTime},#{price},#{fkDiningId})
+        	(#{fkUserId},#{state},#{fkDiningId},#{price})
     </insert>
     
     <insert id="addOrderDish" parameterType="com.cc.order.dto.Order">

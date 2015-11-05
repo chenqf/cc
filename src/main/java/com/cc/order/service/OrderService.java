@@ -49,9 +49,9 @@ public class OrderService {
 			diningId = shopCard.getFkDiningId();
 			Dish dish = this.dishMapper.getById(dishId);
 			price = price + dish.getPrice() * shopCard.getNum();
+			order.setFkDiningId(shopCard.getFkDiningId());
 		}
 		order.setPrice(price);
-		order.setFkDingId(diningId);
 		this.orderMapper.add(order);
 
 		for(int i = 0; i<strs.length; i++){

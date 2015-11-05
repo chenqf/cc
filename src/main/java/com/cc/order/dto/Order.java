@@ -10,6 +10,8 @@ public class Order {
 	
 	private Long fkDingId;
 	
+	private Long fkDiningId;
+	
 	private double price;
 	
 	private Date createTime;
@@ -34,6 +36,15 @@ public class Order {
 	
 	private Integer num;
 	
+	
+
+	public Long getFkDiningId() {
+		return fkDiningId;
+	}
+
+	public void setFkDiningId(Long fkDiningId) {
+		this.fkDiningId = fkDiningId;
+	}
 
 	public Long getId() {
 		return id;
