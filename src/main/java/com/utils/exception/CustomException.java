@@ -1,22 +1,5 @@
-/**  
- * Copyright © 2014电子商务. All rights reserved.
- *
- * @Title: SelfDefinedException.java
- * @Prject: tgou
- * @Package: com.tgou.utils.exception
- * @Description: 自定义异常类
- * @author: Jingh 
- * @date: 2014年8月6日 下午2:15:11
- * @version: V1.0  
- */
 package com.utils.exception;
 
-/**
- * @ClassName: SelfDefinedException
- * @Description: 自定义异常类
- * @author: Jingh
- * @date: 2014年8月6日 下午2:15:11
- */
 public class CustomException extends RuntimeException {
 
 	private static final long serialVersionUID = 6655164451288057079L;
