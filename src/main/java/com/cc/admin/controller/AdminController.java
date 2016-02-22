@@ -56,5 +56,4 @@ public class AdminController extends BaseController {
 		return new JsonData();
 	}
 	
-
 }
