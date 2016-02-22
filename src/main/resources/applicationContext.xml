@@ -37,5 +37,8 @@
       
     <!-- 引入mybatis配置文件 -->
     <import resource="spring-mybatis.xml" /> 
+    
+    <!-- 引入mybatis配置文件 -->
+    <import resource="spring-mail.xml" /> 
 
 </beans>  
