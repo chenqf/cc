@@ -3,9 +3,9 @@ package com.utils.mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class MailUtil {
 	@Autowired
 	private JavaMailSender mailSender;

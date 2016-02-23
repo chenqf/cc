@@ -1,5 +1,10 @@
 package com.cc.admin.controller;
 
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
@@ -14,6 +19,7 @@ import com.utils.json.JsonData;
 import com.utils.json.JsonObject;
 import com.utils.mail.MailBean;
 import com.utils.mail.MailUtil;
+import com.utils.token.CookieHandler;
 
 
 
@@ -27,16 +33,20 @@ public class AdminController extends BaseController {
 	private AdminService adminService;
 	@Autowired
 	private MailUtil mailUtil;
+	@Autowired
+	private CookieHandler cookieHandler;
 	
 
 	@RequestMapping(value = "/login")
 	@ResponseBody
-	public JsonObject login(@Validated Admin admin) throws Exception {
+	public JsonObject login(@Validated Admin admin,HttpServletRequest request,HttpServletResponse response) throws Exception {
 
 		String name = admin.getUsername();
 		String password = admin.getPassword();
 		
 		adminService.test(name);
+		
+		cookieHandler.addCookies(response, "nihao", "chenqf", 7,true);
 		
 		return new JsonData(admin);
 		// throw new Exception("sdfsdfsdf");
